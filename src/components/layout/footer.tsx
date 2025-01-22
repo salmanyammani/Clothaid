@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Shirt, Facebook, Twitter, Instagram, Mail, MapPin, Phone } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Mail, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Footer() {

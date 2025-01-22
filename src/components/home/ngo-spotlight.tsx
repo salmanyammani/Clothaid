@@ -1,6 +1,5 @@
 import React from 'react'
 import { Card } from '../ui/card'
-import { Button } from '../ui/button'
 
 export default function NGO_Spotlight() {
     return (

@@ -12,7 +12,7 @@ export default function OurMission() {
                     </span>
                 </h2>
                 <p className="text-gray-300 max-w-3xl mx-auto text-lg">
-                    At Clothaid, we're committed to creating a sustainable future while helping those in need. Every piece of clothing donated contributes to environmental preservation and social progress.
+                    At Clothaid, we&lsquo;re committed to creating a sustainable future while helping those in need. Every piece of clothing donated contributes to environmental preservation and social progress.
                 </p>
             </div>
 

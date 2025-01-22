@@ -18,7 +18,7 @@ export default function RegisterAsNGO() {
                     </span>
                 </h1>
                 <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-300">
-                    Join Clothaid's network of trusted NGOs and connect with donors ready to make a difference. Together, we can ensure every piece of clothing finds its purpose.
+                    Join Clothaid&lsquo;s network of trusted NGOs and connect with donors ready to make a difference. Together, we can ensure every piece of clothing finds its purpose.
                 </p>
             </div>
 

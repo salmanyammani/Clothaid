@@ -23,7 +23,7 @@ export default function Hero() {
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#acb742] to-[#e46955]">Spread Happiness</span>
                     </h1>
                     <p className="text-xl text-gray-300 mb-8">
-                        Your old belongings, someone's new hope
+                        Your old belongings, someone&lsquo;s new hope
                     </p>
                     <Button size="lg" className="btn-primary relative glass-effect overflow-hidden rounde-md">
                     <div className="absolute inset-0 bg-gradient-to-r from-[#8e6643]/20 to-[#e46955]/20" />

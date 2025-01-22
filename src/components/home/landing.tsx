@@ -27,7 +27,7 @@ export default function Landing() {
                             </span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-xl">
-                            Join our mission to reduce textile waste and help those in need. Every piece of clothing you donate makes a difference in someone's life.
+                            Join our mission to reduce textile waste and help those in need. Every piece of clothing you donate makes a difference in someone&lsquo;s life.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <button className="group inline-flex items-center justify-center px-8 py-4 bg-[#acb742] hover:bg-[#acb742]/90 text-white rounded-lg font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(172,183,66,0.3)]">
