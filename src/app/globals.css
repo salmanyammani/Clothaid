@@ -2,20 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    
+    --accent-olive: 65 61% 49%;
+    --accent-coral: 9 73% 62%;
+    --accent-brown: 26 36% 41%;
+    
+    --card-glass: rgba(255, 255, 255, 0.1);
+    --card-blur: blur(12px);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/[0.08] border border-white/[0.08];
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .thin-border {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: border-color 0.3s ease;
+  }
+
+  .thin-border:hover {
+    border-color: rgba(172, 183, 66, 0.5);
+  }
+
+  .gradient-spotlight {
+    background: linear-gradient(135deg, #acb742, #e46955);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gradient-spotlight::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    );
+    transform: translate(-100%, -100%);
+    transition: transform 0.5s ease;
+  }
+
+  .gradient-spotlight:hover::before {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
 }
