@@ -4,7 +4,6 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Navbar } from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import { headers } from "next/headers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,10 +25,9 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({
-  children, params
+  children
 }: Readonly<{
   children: React.ReactNode;
-  params: any
 }>) {
   return (
     <ClerkProvider>

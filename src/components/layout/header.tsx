@@ -9,15 +9,6 @@ import { usePathname } from 'next/navigation';
 
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
-    const { isSignedIn } = useUser();
-
-    const pathname = usePathname();
-
-    // Hide the navbar on the /dashboard route or its subroutes
-    if (pathname.startsWith("/dashboard")) {
-        return null;
-    }
-
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10);
@@ -26,6 +17,15 @@ export function Navbar() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+    const { isSignedIn } = useUser();
+
+    const pathname = usePathname();
+
+    // Hide the navbar on the /dashboard route or its subroutes
+    const isDashboardRoute = pathname.startsWith("/dashboard");
+    if (isDashboardRoute) {
+        return null;
+    }
 
     return (
         <nav
