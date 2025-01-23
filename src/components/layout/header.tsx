@@ -1,13 +1,22 @@
-'use client';
-
+'use client'
 import { useState, useEffect } from 'react';
-import { ArrowRight} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import { UserButton, useUser } from '@clerk/nextjs';
+import { usePathname } from 'next/navigation';
 
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const { isSignedIn } = useUser();
+
+    const pathname = usePathname();
+
+    // Hide the navbar on the /dashboard route or its subroutes
+    if (pathname.startsWith("/dashboard")) {
+        return null;
+    }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,7 +41,7 @@ export function Navbar() {
                 : 'bg-transparent')}>
                 <div className="flex h-16 items-center justify-between">
                     <Link href="/">
-                        <Image src={"/logos/main-logo.png"} alt="logo" width={240} height={240} className='object-cover lg:-ml-6'/>
+                        <Image src={"/logos/main-logo.png"} alt="logo" width={240} height={240} className='object-cover lg:-ml-6' />
                     </Link>
 
                     <div className="hidden md:flex items-center space-x-8">
@@ -47,16 +56,19 @@ export function Navbar() {
                             </Link>
                         ))}
                     </div>
-
-                    <div className="flex items-center space-x-4">
-                        <Link href={"/sign-in"} className="group inline-flex items-center px-6 py-2 text-white transition-all duration-300 rounded-full bg-transparent border border-[#e46955] hover:bg-[#e46955]/10">
-                            Login
-                            <ArrowRight className="ml-2 h-5 w-5 transform transition-transform group-hover:translate-x-1" />
-                        </Link>
-                        <Link href={"/sign-up"} className="gradient-spotlight px-6 py-2 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-[#acb742]/20">
-                            Register
-                        </Link>
-                    </div>
+                    {
+                        isSignedIn ? (<UserButton />) : (
+                            <div className="flex items-center space-x-4">
+                                <Link href={"/sign-in"} className="group inline-flex items-center px-6 py-2 text-white transition-all duration-300 rounded-full bg-transparent border border-[#e46955] hover:bg-[#e46955]/10">
+                                    Login
+                                    <ArrowRight className="ml-2 h-5 w-5 transform transition-transform group-hover:translate-x-1" />
+                                </Link>
+                                <Link href={"/sign-up"} className="gradient-spotlight px-6 py-2 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-[#acb742]/20">
+                                    Register
+                                </Link>
+                            </div>
+                        )
+                    }
                 </div>
             </div>
         </nav>

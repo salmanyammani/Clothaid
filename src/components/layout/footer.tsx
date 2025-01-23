@@ -3,8 +3,16 @@
 import Link from 'next/link';
 import { Facebook, Twitter, Instagram, Mail, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+      const pathname = usePathname();
+  
+      // Hide the navbar on the /dashboard route or its subroutes
+      if (pathname.startsWith("/dashboard")) {
+          return null;
+      }
+  
   return (
     <footer className="bg-gradient-dark relative overflow-hidden">
       {/* Gradient Orbs */}

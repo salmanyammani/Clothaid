@@ -1,3 +1,4 @@
+"use client"
 import Hero from '@/components/home/hero';
 import HowItWorks from '@/components/home/how-it-works';
 import Landing from '@/components/home/landing';
